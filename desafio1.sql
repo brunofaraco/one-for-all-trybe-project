@@ -6,8 +6,7 @@ CREATE TABLE SpotifyClone.plan (
 plan_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 plan_type VARCHAR(60) NOT NULL UNIQUE,
 plan_value VARCHAR(45) NOT NULL
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE SpotifyClone.user (
 user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -16,14 +15,12 @@ user_age INT NOT NULL,
 fk_user_plan_id INT NOT NULL,
 user_assign_date DATE NOT NULL,
 CONSTRAINT FOREIGN KEY (fk_user_plan_id) REFERENCES SpotifyClone.plan (plan_id)
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE SpotifyClone.artist (
 artist_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 artist_name VARCHAR(100) NOT NULL
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE SpotifyClone.album (
 album_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -31,8 +28,7 @@ album_name VARCHAR(100) NOT NULL,
 fk_album_artist_id INT NOT NULL,
 album_release_date INT NOT NULL,
 CONSTRAINT FOREIGN KEY (fk_album_artist_id) REFERENCES SpotifyClone.artist (artist_id)
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE SpotifyClone.songs (
 songs_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -42,8 +38,7 @@ fk_songs_artist_id INT NOT NULL,
 songs_duration INT NOT NULL,
 CONSTRAINT FOREIGN KEY (fk_songs_album_id) REFERENCES SpotifyClone.album (album_id),
 CONSTRAINT FOREIGN KEY (fk_songs_artist_id) REFERENCES SpotifyClone.artist (artist_id)
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE SpotifyClone.history (
 fk_history_user_id INT NOT NULL,
@@ -52,8 +47,7 @@ PRIMARY KEY (fk_history_user_id, fk_history_songs_id),
 history_play_date DATETIME NOT NULL, 
 CONSTRAINT FOREIGN KEY (fk_history_user_id) REFERENCES SpotifyClone.user (user_id),
 CONSTRAINT FOREIGN KEY (fk_history_songs_id) REFERENCES SpotifyClone.songs (songs_id)
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 -- fa = following_artist
 CREATE TABLE SpotifyClone.fa (
@@ -62,8 +56,7 @@ fk_fa_artist_id INT NOT NULL,
 PRIMARY KEY (fk_fa_user_id, fk_fa_artist_id),
 CONSTRAINT FOREIGN KEY (fk_fa_user_id) REFERENCES SpotifyClone.user (user_id),
 CONSTRAINT FOREIGN KEY (fk_fa_artist_id) REFERENCES SpotifyClone.artist (artist_id)
-)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 INSERT INTO SpotifyClone.plan (plan_type, plan_value)
   VALUES
