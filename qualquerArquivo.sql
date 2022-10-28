@@ -57,11 +57,11 @@ ENGINE = InnoDB;
 
 -- fa = following_artist
 CREATE TABLE SpotifyClone.fa (
-fk_fa_user_id INT NOT NULL,
-fk_fa_artist_id INT NOT NULL,
-PRIMARY KEY (fk_fa_user_id, fk_fa_artist_id),
-CONSTRAINT FOREIGN KEY (fk_fa_user_id) REFERENCES SpotifyClone.user (user_id),
-CONSTRAINT FOREIGN KEY (fk_fa_artist_id) REFERENCES SpotifyClone.artist (artist_id)
+fk_history_user_id INT NOT NULL,
+fk_history_artist_id INT NOT NULL,
+PRIMARY KEY (fk_history_user_id, fk_history_artist_id),
+CONSTRAINT FOREIGN KEY (fk_history_user_id) REFERENCES SpotifyClone.user (user_id),
+CONSTRAINT FOREIGN KEY (fk_history_artist_id) REFERENCES SpotifyClone.artist (artist_id)
 )
 ENGINE = InnoDB;
 
@@ -138,7 +138,7 @@ INSERT INTO SpotifyClone.plan (plan_type, plan_value)
     (10,	3,	"2015-12-13 08:30:22");
 
 -- fa = following_artist
-    INSERT INTO SpotifyClone.fa (fk_fa_user_id, fk_fa_artist_id)
+    INSERT INTO SpotifyClone.fa (fk_history_user_id, fk_history_artist_id)
   VALUES
     (1, 1),
     (1, 2),
