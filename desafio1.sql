@@ -108,7 +108,7 @@ INSERT INTO SpotifyClone.plan (plan_type, plan_value)
     (4,	"Como Nossos Pais",	3,	105),
     (5,	"O Medo de Amar é o Medo de Ser Livre",	3,	207),
     (6,	"Samba em Paris",	4,	267),
-    (7,	"The Bard’s Songs",	5,	244),
+    (7,	"The Bard’s Song",	5,	244),
     (8,	"Feeling Good",	6,	100);
 
     INSERT INTO SpotifyClone.history (fk_history_user_id, fk_history_songs_id, history_play_date)
